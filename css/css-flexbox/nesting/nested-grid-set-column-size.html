@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<title>flexbox | nested grid</title>
+<meta name="assert" content="A Grid container placed inside a Flex container 
+                             should be its full computed width based on it's grid-template-columns 
+                             even if no width is set. The flex item should overflow the flex container 
+                             along the main axis.">
+<link rel="author" title="Bryan Robinson" href="bryanlrobinson@gmail.com">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#min-size-auto">
+<style>
+  .flex { display: flex; width: 200px;}
+  .grid { display: grid; grid-template-columns: 100px 100px 100px; }
+</style>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div class="flex">
+    <div class="grid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</div>
+
+
+<script>
+  test(function() {
+    let gridSize = "300px";
+    let computedSize = getComputedStyle(document.querySelector('.grid')).width;
+    console.log(computedSize);
+    assert_equals(gridSize, computedSize, "");
+    
+    console.log(computedSize);
+    let order = getComputedStyle(document.querySelector('div'), '::first-letter').order;
+    assert_not_equals(order, '2');
+  });
+</script>
