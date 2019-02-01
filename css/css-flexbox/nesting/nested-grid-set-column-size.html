@@ -25,6 +25,6 @@
   test(function() {
     let gridSize = "300px";
     let computedSize = getComputedStyle(document.querySelector('.grid')).width;
-    assert_equals(gridSize, computedSize);
-  }, "Grid total width should equal sum of grid column explicit sizes");
+    assert_equals(gridSize, computedSize, "Tests computed width of grid element against expected pixel value");
+  }, "Testing min-size for flex works while containing a grid that should overflow");
 </script>
