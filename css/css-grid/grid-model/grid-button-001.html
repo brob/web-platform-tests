@@ -19,7 +19,7 @@
 
     let item1ComputedWidth = getComputedStyle(document.querySelector('.item1')).width;
     let item2ComputedWidth = getComputedStyle(document.querySelector('.item2')).width;
-    
+
     assert_equals(item1ComputedWidth, item1ExpectedWidth, "Item 1 should be grid item in column 1 / 2 and get a 100px width: ");
     assert_equals(item2ComputedWidth, item2ExpectedWidth, "Item 2 should be grid item in column 2 / 3 and get a 200px width: ");
   }, "Testing that a grid defined on a button has its grid items flow into grid cells with correct sizes");
