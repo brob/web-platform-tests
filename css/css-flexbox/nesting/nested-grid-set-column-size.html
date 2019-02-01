@@ -27,11 +27,6 @@
   test(function() {
     let gridSize = "300px";
     let computedSize = getComputedStyle(document.querySelector('.grid')).width;
-    console.log(computedSize);
-    assert_equals(gridSize, computedSize, "");
-    
-    console.log(computedSize);
-    let order = getComputedStyle(document.querySelector('div'), '::first-letter').order;
-    assert_not_equals(order, '2');
-  });
+    assert_equals(gridSize, computedSize);
+  }, "Grid total width should equal sum of grid column explicit sizes");
 </script>
